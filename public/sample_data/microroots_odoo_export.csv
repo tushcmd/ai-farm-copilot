@@ -1,0 +1,110 @@
+order_id,order_date,customer_name,product_name,quantity,unit_price,subtotal,order_status,customer_city,payment_status
+S00101,2026-03-05 08:30:00,Nairobi Greens Cafe,Sunflower Microgreens 100g,10,350,3500,sale,Westlands,invoiced
+S00101,2026-03-05 08:30:00,Nairobi Greens Cafe,Pea Shoot Microgreens 100g,5,380,1900,sale,Westlands,invoiced
+S00102,2026-03-06 10:15:00,The Organic Pantry,Radish Microgreens 100g,8,300,2400,sale,Karen,invoiced
+S00102,2026-03-06 10:15:00,The Organic Pantry,Sunflower Microgreens 100g,12,350,4200,sale,Karen,invoiced
+S00103,2026-03-07 09:00:00,Java House Lavington,Wheatgrass Shots 50ml,20,150,3000,sale,Lavington,invoiced
+S00103,2026-03-07 09:00:00,Java House Lavington,Broccoli Microgreens 100g,6,420,2520,sale,Lavington,invoiced
+S00104,2026-03-09 11:30:00,Artisan Kitchen,Sunflower Microgreens 100g,15,350,5250,sale,Kilimani,invoiced
+S00104,2026-03-09 11:30:00,Artisan Kitchen,Pea Shoot Microgreens 100g,8,380,3040,sale,Kilimani,invoiced
+S00105,2026-03-10 14:00:00,Green Spoon Restaurant,Radish Microgreens 100g,10,300,3000,sale,Gigiri,invoiced
+S00105,2026-03-10 14:00:00,Green Spoon Restaurant,Broccoli Microgreens 100g,5,420,2100,sale,Gigiri,invoiced
+S00106,2026-03-12 08:00:00,Nairobi Greens Cafe,Sunflower Microgreens 100g,12,350,4200,sale,Westlands,invoiced
+S00106,2026-03-12 08:00:00,Nairobi Greens Cafe,Wheatgrass Shots 50ml,15,150,2250,sale,Westlands,invoiced
+S00107,2026-03-13 09:30:00,Tribe Hotel,Sunflower Microgreens 100g,20,380,7600,sale,Limuru Rd,invoiced
+S00107,2026-03-13 09:30:00,Tribe Hotel,Pea Shoot Microgreens 100g,15,400,6000,sale,Limuru Rd,invoiced
+S00107,2026-03-13 09:30:00,Tribe Hotel,Radish Microgreens 100g,10,320,3200,sale,Limuru Rd,invoiced
+S00108,2026-03-15 10:00:00,The Organic Pantry,Broccoli Microgreens 100g,10,420,4200,sale,Karen,invoiced
+S00108,2026-03-15 10:00:00,The Organic Pantry,Wheatgrass Shots 50ml,8,150,1200,sale,Karen,invoiced
+S00109,2026-03-16 11:00:00,Mama Oliech Restaurant,Sunflower Microgreens 100g,6,350,2100,sale,Hurlingham,invoiced
+S00109,2026-03-16 11:00:00,Mama Oliech Restaurant,Radish Microgreens 100g,4,300,1200,sale,Hurlingham,invoiced
+S00110,2026-03-18 08:30:00,Java House Lavington,Sunflower Microgreens 100g,18,350,6300,sale,Lavington,invoiced
+S00110,2026-03-18 08:30:00,Java House Lavington,Pea Shoot Microgreens 100g,10,380,3800,sale,Lavington,invoiced
+S00111,2026-03-19 14:30:00,Artisan Kitchen,Broccoli Microgreens 100g,8,420,3360,sale,Kilimani,invoiced
+S00111,2026-03-19 14:30:00,Artisan Kitchen,Sunflower Microgreens 100g,10,350,3500,sale,Kilimani,invoiced
+S00112,2026-03-21 09:00:00,Green Spoon Restaurant,Pea Shoot Microgreens 100g,6,380,2280,sale,Gigiri,invoiced
+S00112,2026-03-21 09:00:00,Green Spoon Restaurant,Wheatgrass Shots 50ml,10,150,1500,sale,Gigiri,invoiced
+S00113,2026-03-23 10:00:00,Nairobi Greens Cafe,Radish Microgreens 100g,8,300,2400,sale,Westlands,invoiced
+S00113,2026-03-23 10:00:00,Nairobi Greens Cafe,Broccoli Microgreens 100g,5,420,2100,sale,Westlands,invoiced
+S00114,2026-03-25 08:00:00,Tribe Hotel,Sunflower Microgreens 100g,25,380,9500,sale,Limuru Rd,invoiced
+S00114,2026-03-25 08:00:00,Tribe Hotel,Pea Shoot Microgreens 100g,20,400,8000,sale,Limuru Rd,invoiced
+S00115,2026-03-26 11:00:00,Sankara Hotel,Sunflower Microgreens 100g,30,400,12000,sale,Westlands,invoiced
+S00115,2026-03-26 11:00:00,Sankara Hotel,Broccoli Microgreens 100g,15,450,6750,sale,Westlands,invoiced
+S00115,2026-03-26 11:00:00,Sankara Hotel,Radish Microgreens 100g,12,330,3960,sale,Westlands,invoiced
+S00116,2026-03-28 09:30:00,The Organic Pantry,Sunflower Microgreens 100g,10,350,3500,sale,Karen,invoiced
+S00116,2026-03-28 09:30:00,The Organic Pantry,Pea Shoot Microgreens 100g,6,380,2280,sale,Karen,invoiced
+S00117,2026-03-30 14:00:00,Artisan Kitchen,Wheatgrass Shots 50ml,20,150,3000,sale,Kilimani,invoiced
+S00117,2026-03-30 14:00:00,Artisan Kitchen,Radish Microgreens 100g,8,300,2400,sale,Kilimani,invoiced
+S00118,2026-04-01 08:30:00,Java House Lavington,Sunflower Microgreens 100g,20,350,7000,sale,Lavington,invoiced
+S00118,2026-04-01 08:30:00,Java House Lavington,Broccoli Microgreens 100g,8,420,3360,sale,Lavington,invoiced
+S00119,2026-04-02 10:00:00,Green Spoon Restaurant,Sunflower Microgreens 100g,8,350,2800,sale,Gigiri,invoiced
+S00119,2026-04-02 10:00:00,Green Spoon Restaurant,Pea Shoot Microgreens 100g,5,380,1900,sale,Gigiri,invoiced
+S00120,2026-04-04 09:00:00,Nairobi Greens Cafe,Sunflower Microgreens 100g,15,350,5250,sale,Westlands,invoiced
+S00120,2026-04-04 09:00:00,Nairobi Greens Cafe,Wheatgrass Shots 50ml,12,150,1800,sale,Westlands,invoiced
+S00121,2026-04-05 11:30:00,Tribe Hotel,Sunflower Microgreens 100g,28,380,10640,sale,Limuru Rd,invoiced
+S00121,2026-04-05 11:30:00,Tribe Hotel,Broccoli Microgreens 100g,12,450,5400,sale,Limuru Rd,invoiced
+S00122,2026-04-07 08:00:00,Sankara Hotel,Pea Shoot Microgreens 100g,25,420,10500,sale,Westlands,invoiced
+S00122,2026-04-07 08:00:00,Sankara Hotel,Sunflower Microgreens 100g,30,400,12000,sale,Westlands,invoiced
+S00123,2026-04-09 14:00:00,Artisan Kitchen,Sunflower Microgreens 100g,12,350,4200,sale,Kilimani,invoiced
+S00123,2026-04-09 14:00:00,Artisan Kitchen,Radish Microgreens 100g,10,300,3000,sale,Kilimani,invoiced
+S00124,2026-04-10 09:30:00,The Organic Pantry,Broccoli Microgreens 100g,12,420,5040,sale,Karen,invoiced
+S00124,2026-04-10 09:30:00,The Organic Pantry,Wheatgrass Shots 50ml,10,150,1500,sale,Karen,invoiced
+S00125,2026-04-12 10:00:00,Mama Oliech Restaurant,Sunflower Microgreens 100g,8,350,2800,sale,Hurlingham,invoiced
+S00125,2026-04-12 10:00:00,Mama Oliech Restaurant,Pea Shoot Microgreens 100g,5,380,1900,sale,Hurlingham,invoiced
+S00126,2026-04-14 08:30:00,Java House Lavington,Sunflower Microgreens 100g,22,350,7700,sale,Lavington,invoiced
+S00126,2026-04-14 08:30:00,Java House Lavington,Pea Shoot Microgreens 100g,12,380,4560,sale,Lavington,invoiced
+S00127,2026-04-16 09:00:00,Nairobi Greens Cafe,Sunflower Microgreens 100g,18,350,6300,sale,Westlands,invoiced
+S00127,2026-04-16 09:00:00,Nairobi Greens Cafe,Radish Microgreens 100g,6,300,1800,sale,Westlands,invoiced
+S00128,2026-04-18 11:00:00,Sankara Hotel,Sunflower Microgreens 100g,35,400,14000,sale,Westlands,invoiced
+S00128,2026-04-18 11:00:00,Sankara Hotel,Pea Shoot Microgreens 100g,20,420,8400,sale,Westlands,invoiced
+S00128,2026-04-18 11:00:00,Sankara Hotel,Broccoli Microgreens 100g,10,450,4500,sale,Westlands,invoiced
+S00129,2026-04-20 08:00:00,Green Spoon Restaurant,Broccoli Microgreens 100g,8,420,3360,sale,Gigiri,invoiced
+S00129,2026-04-20 08:00:00,Green Spoon Restaurant,Sunflower Microgreens 100g,10,350,3500,sale,Gigiri,invoiced
+S00130,2026-04-22 10:30:00,Tribe Hotel,Sunflower Microgreens 100g,30,380,11400,sale,Limuru Rd,invoiced
+S00130,2026-04-22 10:30:00,Tribe Hotel,Pea Shoot Microgreens 100g,18,400,7200,sale,Limuru Rd,invoiced
+S00131,2026-04-24 09:00:00,Artisan Kitchen,Broccoli Microgreens 100g,10,420,4200,sale,Kilimani,invoiced
+S00131,2026-04-24 09:00:00,Artisan Kitchen,Wheatgrass Shots 50ml,15,150,2250,sale,Kilimani,invoiced
+S00132,2026-04-26 14:00:00,The Organic Pantry,Sunflower Microgreens 100g,14,350,4900,sale,Karen,invoiced
+S00132,2026-04-26 14:00:00,The Organic Pantry,Radish Microgreens 100g,8,300,2400,sale,Karen,invoiced
+S00133,2026-04-28 08:30:00,Java House Lavington,Broccoli Microgreens 100g,10,420,4200,sale,Lavington,invoiced
+S00133,2026-04-28 08:30:00,Java House Lavington,Sunflower Microgreens 100g,20,350,7000,sale,Lavington,invoiced
+S00134,2026-04-30 10:00:00,Nairobi Greens Cafe,Pea Shoot Microgreens 100g,10,380,3800,sale,Westlands,invoiced
+S00134,2026-04-30 10:00:00,Nairobi Greens Cafe,Sunflower Microgreens 100g,15,350,5250,sale,Westlands,invoiced
+S00135,2026-05-02 09:30:00,Sankara Hotel,Sunflower Microgreens 100g,40,400,16000,sale,Westlands,invoiced
+S00135,2026-05-02 09:30:00,Sankara Hotel,Broccoli Microgreens 100g,18,450,8100,sale,Westlands,invoiced
+S00136,2026-05-04 11:00:00,Tribe Hotel,Sunflower Microgreens 100g,32,380,12160,sale,Limuru Rd,invoiced
+S00136,2026-05-04 11:00:00,Tribe Hotel,Pea Shoot Microgreens 100g,22,400,8800,sale,Limuru Rd,invoiced
+S00137,2026-05-06 08:00:00,Green Spoon Restaurant,Sunflower Microgreens 100g,12,350,4200,sale,Gigiri,invoiced
+S00137,2026-05-06 08:00:00,Green Spoon Restaurant,Wheatgrass Shots 50ml,8,150,1200,sale,Gigiri,invoiced
+S00138,2026-05-08 09:00:00,Artisan Kitchen,Sunflower Microgreens 100g,14,350,4900,sale,Kilimani,invoiced
+S00138,2026-05-08 09:00:00,Artisan Kitchen,Pea Shoot Microgreens 100g,8,380,3040,sale,Kilimani,invoiced
+S00139,2026-05-09 10:30:00,Java House Lavington,Sunflower Microgreens 100g,25,350,8750,sale,Lavington,invoiced
+S00139,2026-05-09 10:30:00,Java House Lavington,Radish Microgreens 100g,10,300,3000,sale,Lavington,invoiced
+S00140,2026-05-11 08:30:00,Nairobi Greens Cafe,Sunflower Microgreens 100g,20,350,7000,sale,Westlands,invoiced
+S00140,2026-05-11 08:30:00,Nairobi Greens Cafe,Broccoli Microgreens 100g,8,420,3360,sale,Westlands,invoiced
+S00141,2026-05-13 14:00:00,The Organic Pantry,Sunflower Microgreens 100g,16,350,5600,sale,Karen,invoiced
+S00141,2026-05-13 14:00:00,The Organic Pantry,Pea Shoot Microgreens 100g,10,380,3800,sale,Karen,invoiced
+S00142,2026-05-15 09:00:00,Sankara Hotel,Sunflower Microgreens 100g,42,400,16800,sale,Westlands,invoiced
+S00142,2026-05-15 09:00:00,Sankara Hotel,Pea Shoot Microgreens 100g,25,420,10500,sale,Westlands,invoiced
+S00142,2026-05-15 09:00:00,Sankara Hotel,Broccoli Microgreens 100g,15,450,6750,sale,Westlands,invoiced
+S00143,2026-05-16 10:00:00,Mama Oliech Restaurant,Radish Microgreens 100g,5,300,1500,sale,Hurlingham,invoiced
+S00143,2026-05-16 10:00:00,Mama Oliech Restaurant,Wheatgrass Shots 50ml,6,150,900,sale,Hurlingham,invoiced
+S00144,2026-05-18 08:30:00,Tribe Hotel,Sunflower Microgreens 100g,35,380,13300,sale,Limuru Rd,invoiced
+S00144,2026-05-18 08:30:00,Tribe Hotel,Broccoli Microgreens 100g,14,450,6300,sale,Limuru Rd,invoiced
+S00145,2026-05-20 11:00:00,Artisan Kitchen,Sunflower Microgreens 100g,16,350,5600,sale,Kilimani,invoiced
+S00145,2026-05-20 11:00:00,Artisan Kitchen,Radish Microgreens 100g,8,300,2400,sale,Kilimani,invoiced
+S00146,2026-05-22 09:30:00,Java House Lavington,Sunflower Microgreens 100g,28,350,9800,sale,Lavington,invoiced
+S00146,2026-05-22 09:30:00,Java House Lavington,Pea Shoot Microgreens 100g,15,380,5700,sale,Lavington,invoiced
+S00147,2026-05-23 14:00:00,Green Spoon Restaurant,Broccoli Microgreens 100g,10,420,4200,sale,Gigiri,invoiced
+S00147,2026-05-23 14:00:00,Green Spoon Restaurant,Pea Shoot Microgreens 100g,8,380,3040,sale,Gigiri,invoiced
+S00148,2026-05-25 08:00:00,Nairobi Greens Cafe,Sunflower Microgreens 100g,22,350,7700,sale,Westlands,invoiced
+S00148,2026-05-25 08:00:00,Nairobi Greens Cafe,Pea Shoot Microgreens 100g,12,380,4560,sale,Westlands,invoiced
+S00149,2026-05-26 10:00:00,Sankara Hotel,Sunflower Microgreens 100g,45,400,18000,sale,Westlands,invoiced
+S00149,2026-05-26 10:00:00,Sankara Hotel,Broccoli Microgreens 100g,20,450,9000,sale,Westlands,invoiced
+S00149,2026-05-26 10:00:00,Sankara Hotel,Radish Microgreens 100g,15,330,4950,sale,Westlands,invoiced
+S00150,2026-05-28 09:00:00,The Organic Pantry,Sunflower Microgreens 100g,18,350,6300,sale,Karen,invoiced
+S00150,2026-05-28 09:00:00,The Organic Pantry,Broccoli Microgreens 100g,10,420,4200,sale,Karen,invoiced
+S00151,2026-05-29 11:30:00,Tribe Hotel,Sunflower Microgreens 100g,38,380,14440,sale,Limuru Rd,invoiced
+S00151,2026-05-29 11:30:00,Tribe Hotel,Pea Shoot Microgreens 100g,25,400,10000,sale,Limuru Rd,invoiced
+S00152,2026-05-30 08:30:00,Java House Lavington,Sunflower Microgreens 100g,30,350,10500,sale,Lavington,invoiced
+S00152,2026-05-30 08:30:00,Java House Lavington,Broccoli Microgreens 100g,12,420,5040,sale,Lavington,invoiced
