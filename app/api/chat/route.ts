@@ -1,9 +1,18 @@
-import { NextRequest } from "next/server";
-import OpenAI from "openai";
+import { NextRequest } from 'next/server';
+import OpenAI from 'openai';
 
-const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
+// const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
+const openai = new OpenAI({
+  apiKey: process.env.OPENROUTER_API_KEY,
+  baseURL: 'https://openrouter.ai/api/v1',
+  defaultHeaders: {
+    'HTTP-Referer': 'https://microrootske.com',
+    'X-Title': 'MicrorootsKE AI Farm Copilot',
+  },
+});
+const MODEL = 'deepseek/deepseek-v3-0324:free';
 
-type ChatMessage = { role: "user" | "assistant" | "system"; content: string };
+type ChatMessage = { role: 'user' | 'assistant' | 'system'; content: string };
 
 function buildSystemPrompt(csvSummary: string): string {
   return `You are the AI Farm Copilot for MicrorootsKE, a microgreens farm in Nairobi, Kenya.
@@ -29,10 +38,13 @@ export async function POST(request: NextRequest) {
     const csvSummary: string = body.csvSummary;
 
     if (!messages || !csvSummary) {
-      return new Response(JSON.stringify({ error: "messages and csvSummary are required" }), {
-        status: 400,
-        headers: { "Content-Type": "application/json" },
-      });
+      return new Response(
+        JSON.stringify({ error: 'messages and csvSummary are required' }),
+        {
+          status: 400,
+          headers: { 'Content-Type': 'application/json' },
+        },
+      );
     }
 
     // Create a streaming ReadableStream using OpenAI streaming
@@ -40,9 +52,9 @@ export async function POST(request: NextRequest) {
       async start(controller) {
         try {
           const openaiStream = await openai.chat.completions.create({
-            model: "gpt-4o",
+            model: 'gpt-4o',
             messages: [
-              { role: "system", content: buildSystemPrompt(csvSummary) },
+              { role: 'system', content: buildSystemPrompt(csvSummary) },
               ...messages,
             ],
             temperature: 0.5,
@@ -64,18 +76,18 @@ export async function POST(request: NextRequest) {
 
     return new Response(stream, {
       headers: {
-        "Content-Type": "text/plain; charset=utf-8",
-        "Transfer-Encoding": "chunked",
-        "Cache-Control": "no-cache",
-        "X-Accel-Buffering": "no",
+        'Content-Type': 'text/plain; charset=utf-8',
+        'Transfer-Encoding': 'chunked',
+        'Cache-Control': 'no-cache',
+        'X-Accel-Buffering': 'no',
       },
     });
   } catch (err: unknown) {
-    const message = err instanceof Error ? err.message : "Chat failed";
-    console.error("Chat error:", err);
+    const message = err instanceof Error ? err.message : 'Chat failed';
+    console.error('Chat error:', err);
     return new Response(JSON.stringify({ error: message }), {
       status: 500,
-      headers: { "Content-Type": "application/json" },
+      headers: { 'Content-Type': 'application/json' },
     });
   }
 }
