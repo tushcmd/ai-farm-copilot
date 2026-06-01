@@ -37,7 +37,7 @@ export default function DashboardPage() {
           <div className="flex items-center gap-2 text-xs px-3 py-1.5 rounded-full border"
             style={{ color: "var(--muted-foreground)", borderColor: "var(--border)", background: "var(--muted)" }}>
             <span className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse" />
-            Analyzed by DeepSeek V4 Flash
+            Analyzed by Llama 3.3 70B
           </div>
         </div>
       </div>

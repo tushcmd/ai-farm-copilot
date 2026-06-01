@@ -1,18 +1,36 @@
-import { NextRequest, NextResponse } from 'next/server';
-import OpenAI from 'openai';
+import { NextRequest, NextResponse } from "next/server";
+import OpenAI from "openai";
 
-// OpenRouter — OpenAI-compatible API, free models end with :free
+// Groq — OpenAI-compatible API, free tier, no credit card required
+// Sign up + get key at: https://console.groq.com/keys
 const openai = new OpenAI({
-  apiKey: process.env.OPENROUTER_API_KEY,
-  baseURL: 'https://openrouter.ai/api/v1',
-  defaultHeaders: {
-    'HTTP-Referer': 'https://microrootske.com',
-    'X-Title': 'MicrorootsKE AI Farm Copilot',
-  },
+  apiKey: process.env.GROQ_API_KEY,
+  baseURL: "https://api.groq.com/openai/v1",
 });
 
-// const MODEL = "deepseek/deepseek-v4-flash:free";
-const MODEL = 'google/gemma-4-31b-it:free';
+const MODEL = "llama-3.3-70b-versatile";
+
+// Retry a function up to maxAttempts times on 429 errors, with exponential backoff
+async function withRetry<T>(fn: () => Promise<T>, maxAttempts = 3): Promise<T> {
+  let lastError: unknown;
+  for (let attempt = 1; attempt <= maxAttempts; attempt++) {
+    try {
+      return await fn();
+    } catch (err: unknown) {
+      lastError = err;
+      const isRateLimit =
+        typeof err === "object" &&
+        err !== null &&
+        "status" in err &&
+        (err as { status: number }).status === 429;
+      if (!isRateLimit || attempt === maxAttempts) throw err;
+      const waitMs = attempt * 10000; // 10s, 20s
+      console.warn(`429 rate limit – retrying in ${waitMs / 1000}s (attempt ${attempt}/${maxAttempts})`);
+      await new Promise((r) => setTimeout(r, waitMs));
+    }
+  }
+  throw lastError;
+}
 
 function buildAnalysisPrompt(csvSummary: string): string {
   return `You are an AI business analyst for MicrorootsKE, a microgreens farm in Nairobi, Kenya.
@@ -38,11 +56,11 @@ Use KES for currency. Be specific, data-driven, and actionable. No generic advic
 }
 
 function buildPlantingPrompt(csvSummary: string): string {
-  const today = new Date().toLocaleDateString('en-KE', {
-    weekday: 'long',
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric',
+  const today = new Date().toLocaleDateString("en-KE", {
+    weekday: "long",
+    year: "numeric",
+    month: "long",
+    day: "numeric",
   });
   return `You are an expert microgreens farm manager advising MicrorootsKE in Nairobi, Kenya.
 
@@ -75,35 +93,30 @@ export async function POST(request: NextRequest) {
   try {
     const { csvSummary } = await request.json();
     if (!csvSummary) {
-      return NextResponse.json(
-        { error: 'csvSummary is required' },
-        { status: 400 },
-      );
+      return NextResponse.json({ error: "csvSummary is required" }, { status: 400 });
     }
 
-    // Note: some free models don't support response_format: json_object
-    // We rely on prompt instructions for JSON output instead
-    const [insightsRes, plantingRes] = await Promise.all([
+    // Run sequentially to avoid doubling rate-limit pressure
+    const insightsRes = await withRetry(() =>
       openai.chat.completions.create({
         model: MODEL,
-        messages: [{ role: 'user', content: buildAnalysisPrompt(csvSummary) }],
+        messages: [{ role: "user", content: buildAnalysisPrompt(csvSummary) }],
         temperature: 0.3,
         max_tokens: 1500,
-      }),
+      })
+    );
+
+    const plantingRes = await withRetry(() =>
       openai.chat.completions.create({
         model: MODEL,
-        messages: [{ role: 'user', content: buildPlantingPrompt(csvSummary) }],
+        messages: [{ role: "user", content: buildPlantingPrompt(csvSummary) }],
         temperature: 0.4,
         max_tokens: 1000,
-      }),
-    ]);
+      })
+    );
 
-    const insightsRaw = extractJson(
-      insightsRes.choices[0]?.message?.content || '{}',
-    );
-    const plantingRaw = extractJson(
-      plantingRes.choices[0]?.message?.content || '{}',
-    );
+    const insightsRaw = extractJson(insightsRes.choices[0]?.message?.content || "{}");
+    const plantingRaw = extractJson(plantingRes.choices[0]?.message?.content || "{}");
 
     let insights;
     try {
@@ -122,8 +135,8 @@ export async function POST(request: NextRequest) {
 
     return NextResponse.json({ insights, planting });
   } catch (err: unknown) {
-    const message = err instanceof Error ? err.message : 'Analysis failed';
-    console.error('Analyze error:', err);
+    const message = err instanceof Error ? err.message : "Analysis failed";
+    console.error("Analyze error:", err);
     return NextResponse.json({ error: message }, { status: 500 });
   }
 }

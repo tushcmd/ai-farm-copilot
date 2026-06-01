@@ -88,7 +88,7 @@ export function Sidebar() {
           </div>
           <span className="inline-block text-xs px-2 py-0.5 rounded-full"
             style={{ background: "var(--accent)", color: "var(--accent-foreground)" }}>
-            DeepSeek V4 Flash Analyzed
+            Llama 3.3 70B Analyzed
           </span>
           <button
             data-testid="button-reset"

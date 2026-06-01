@@ -129,7 +129,7 @@ export function CsvDropzone() {
           {isAnalyzing ? (
             <span className="flex items-center justify-center gap-2">
               <span className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin inline-block" />
-              Analyzing with DeepSeek V4 Flash…
+              Analyzing with Llama 3.3 70B…
             </span>
           ) : "Analyze My Farm →"}
         </button>
