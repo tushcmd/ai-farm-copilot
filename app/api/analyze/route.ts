@@ -1,16 +1,17 @@
-import { NextRequest, NextResponse } from 'next/server';
-import OpenAI from 'openai';
+import { NextRequest, NextResponse } from "next/server";
+import OpenAI from "openai";
 
-// const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
+// OpenRouter — OpenAI-compatible API, free models end with :free
 const openai = new OpenAI({
   apiKey: process.env.OPENROUTER_API_KEY,
-  baseURL: 'https://openrouter.ai/api/v1',
+  baseURL: "https://openrouter.ai/api/v1",
   defaultHeaders: {
-    'HTTP-Referer': 'https://microrootske.com',
-    'X-Title': 'MicrorootsKE AI Farm Copilot',
+    "HTTP-Referer": "https://microrootske.com",
+    "X-Title": "MicrorootsKE AI Farm Copilot",
   },
 });
-const MODEL = 'deepseek/deepseek-v3-0324:free';
+
+const MODEL = "deepseek/deepseek-v4-flash:free";
 
 function buildAnalysisPrompt(csvSummary: string): string {
   return `You are an AI business analyst for MicrorootsKE, a microgreens farm in Nairobi, Kenya.
@@ -36,11 +37,11 @@ Use KES for currency. Be specific, data-driven, and actionable. No generic advic
 }
 
 function buildPlantingPrompt(csvSummary: string): string {
-  const today = new Date().toLocaleDateString('en-KE', {
-    weekday: 'long',
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric',
+  const today = new Date().toLocaleDateString("en-KE", {
+    weekday: "long",
+    year: "numeric",
+    month: "long",
+    day: "numeric",
   });
   return `You are an expert microgreens farm manager advising MicrorootsKE in Nairobi, Kenya.
 
@@ -63,33 +64,38 @@ Respond with ONLY valid JSON:
 }`;
 }
 
+// Strip markdown code fences that some models wrap JSON in
+function extractJson(raw: string): string {
+  const match = raw.match(/```(?:json)?\s*([\s\S]*?)```/);
+  return match ? match[1].trim() : raw.trim();
+}
+
 export async function POST(request: NextRequest) {
   try {
     const { csvSummary } = await request.json();
     if (!csvSummary) {
-      return NextResponse.json(
-        { error: 'csvSummary is required' },
-        { status: 400 },
-      );
+      return NextResponse.json({ error: "csvSummary is required" }, { status: 400 });
     }
 
+    // Note: some free models don't support response_format: json_object
+    // We rely on prompt instructions for JSON output instead
     const [insightsRes, plantingRes] = await Promise.all([
       openai.chat.completions.create({
-        model: 'gpt-4o',
-        messages: [{ role: 'user', content: buildAnalysisPrompt(csvSummary) }],
-        response_format: { type: 'json_object' },
+        model: MODEL,
+        messages: [{ role: "user", content: buildAnalysisPrompt(csvSummary) }],
         temperature: 0.3,
+        max_tokens: 1500,
       }),
       openai.chat.completions.create({
-        model: 'gpt-4o',
-        messages: [{ role: 'user', content: buildPlantingPrompt(csvSummary) }],
-        response_format: { type: 'json_object' },
+        model: MODEL,
+        messages: [{ role: "user", content: buildPlantingPrompt(csvSummary) }],
         temperature: 0.4,
+        max_tokens: 1000,
       }),
     ]);
 
-    const insightsRaw = insightsRes.choices[0]?.message?.content || '{}';
-    const plantingRaw = plantingRes.choices[0]?.message?.content || '{}';
+    const insightsRaw = extractJson(insightsRes.choices[0]?.message?.content || "{}");
+    const plantingRaw = extractJson(plantingRes.choices[0]?.message?.content || "{}");
 
     let insights;
     try {
@@ -108,8 +114,8 @@ export async function POST(request: NextRequest) {
 
     return NextResponse.json({ insights, planting });
   } catch (err: unknown) {
-    const message = err instanceof Error ? err.message : 'Analysis failed';
-    console.error('Analyze error:', err);
+    const message = err instanceof Error ? err.message : "Analysis failed";
+    console.error("Analyze error:", err);
     return NextResponse.json({ error: message }, { status: 500 });
   }
 }

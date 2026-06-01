@@ -16,7 +16,7 @@ export function RevenueChart({ data }: Props) {
         <div className="text-sm font-medium" style={{ color: "var(--foreground)" }}>Weekly Revenue</div>
         <div className="text-xs" style={{ color: "var(--muted-foreground)" }}>Last 8 weeks</div>
       </div>
-      <div className="h-48" data-testid="chart-revenue">
+      <div style={{ height: 192, minHeight: 0 }} data-testid="chart-revenue">
         <ResponsiveContainer width="100%" height="100%">
           <AreaChart data={data} margin={{ top: 4, right: 4, bottom: 0, left: 0 }}>
             <defs>

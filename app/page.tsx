@@ -5,7 +5,7 @@ import { FileText, BarChart2, MessageSquare, Sprout } from "lucide-react";
 
 const STEPS = [
   { icon: FileText,     label: "Upload CSV",   desc: "Export from Odoo Sales → Orders" },
-  { icon: BarChart2,    label: "AI Analysis",  desc: "GPT-4o analyzes your business data" },
+  { icon: BarChart2,    label: "AI Analysis",  desc: "DeepSeek V4 Flash analyzes your business data" },
   { icon: MessageSquare,label: "Get Insights", desc: "Dashboard + chat with your data" },
 ];
 

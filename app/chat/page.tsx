@@ -100,7 +100,7 @@ export default function ChatPage() {
             </div>
           </div>
           <div className="ml-auto flex items-center gap-2 text-xs" style={{ color: "var(--muted-foreground)" }}>
-            <span className="w-1.5 h-1.5 rounded-full bg-green-500" />GPT-4o
+            <span className="w-1.5 h-1.5 rounded-full bg-green-500" />DeepSeek V4 Flash
           </div>
         </div>
       </div>

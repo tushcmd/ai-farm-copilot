@@ -19,7 +19,7 @@ export function ProductBreakdown({ products }: Props) {
         <div className="text-sm font-medium" style={{ color: "var(--foreground)" }}>Revenue by Product</div>
         <div className="text-xs" style={{ color: "var(--muted-foreground)" }}>Top {top.length} products</div>
       </div>
-      <div className="h-48" data-testid="chart-products">
+      <div style={{ height: 192, minHeight: 0 }} data-testid="chart-products">
         <ResponsiveContainer width="100%" height="100%">
           <BarChart data={top} layout="vertical" margin={{ top: 4, right: 4, bottom: 0, left: 0 }}>
             <CartesianGrid strokeDasharray="3 3" stroke="var(--border)" horizontal={false} />
