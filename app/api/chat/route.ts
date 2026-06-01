@@ -12,7 +12,7 @@ const openai = new OpenAI({
 });
 
 // const MODEL = "deepseek/deepseek-v4-flash:free";
-const MODEL = 'meta-llama/llama-3.3-70b-instruct:free';
+const MODEL = 'google/gemma-4-31b-it:free';
 
 type ChatMessage = { role: 'user' | 'assistant' | 'system'; content: string };
 
